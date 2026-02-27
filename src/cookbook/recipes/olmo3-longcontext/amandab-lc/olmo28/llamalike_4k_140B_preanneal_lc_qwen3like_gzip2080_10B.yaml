@@ -2,7 +2,7 @@ name: &name "llamalike_4k_140B_lc_64k-midtrain_round3_qwenlike_s2pdf_gzip2080_10
 description: *name
 budget: "ai2/oe-base"
 workspace: "ai2/long-contexts"
-cluster: ai2/jupiter
+cluster: ai2/jupiter-cirrascale-2
 preemptible: true
 priority: high
 nodes: 2
