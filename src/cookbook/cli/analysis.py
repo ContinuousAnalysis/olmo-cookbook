@@ -56,7 +56,7 @@ def download(dashboard: str, task: list[str], data_type: str = "predictions", fo
     output_path = cache_dir / f"{dashboard}_{data_type}.parquet"
 
     tasks = ExpandedTasks.from_tasks(task)
-    expanded_tasks = tasks.all_column_tasks
+    expanded_tasks = tasks.all_column_tasks or None
 
     experiments = FindExperiments.run(dashboard=dashboard)
 

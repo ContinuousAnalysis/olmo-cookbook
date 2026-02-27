@@ -69,7 +69,7 @@ class DatalakeCache(Generic[T]):
             with smart_open.open(cache_file, "rt", encoding="utf-8") as f:
                 try:
                     return DatalakeCacheResult(success=True, value=json.load(f))
-                except EOFError:
+                except (EOFError, json.JSONDecodeError):
                     return DatalakeCacheResult(success=False, value=None)
 
         return DatalakeCacheResult(success=False, value=None)

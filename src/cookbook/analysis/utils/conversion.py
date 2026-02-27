@@ -509,6 +509,9 @@ def construct_smallpond(experiments, task_aliases, output_path, data_type, chunk
             all_tables.append(table)
         
         # Concatenate tables
+        if not all_tables:
+            logger.warning("No data was produced from any experiment. Output file will not be created.")
+            return
         logger.info("Concatenating tables...")
         unified_table = pa.concat_tables(all_tables)
         pq.write_table(unified_table, final_output)
